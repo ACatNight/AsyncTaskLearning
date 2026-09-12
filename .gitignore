@@ -1,0 +1,21 @@
+## .NET build output
+**/bin/
+**/obj/
+
+## IDE and local state
+.vs/
+.vscode/
+*.user
+*.suo
+
+## Test and coverage output
+TestResults/
+coverage/
+
+## Local environment files
+*.local.json
+appsettings.Local.json
+
+## OS files
+Thumbs.db
+Desktop.ini
