@@ -73,6 +73,38 @@ class PriorityQueueTest
             Console.WriteLine(
                 $"{taskInfo.Name}，优先级：{key.Priority}，加入顺序：{key.Order}");
         }
+
+        Console.WriteLine("==============");
+        var queue2 = new PriorityQueue<string, int>();
+        queue2.Enqueue("任务A", 1);
+        queue2.Enqueue("任务B", 1);
+        queue2.Enqueue("任务C", 2);
+        queue2.Enqueue("任务D", 3);
+        queue2.Enqueue("任务E", 3);
+        int total = 0;
+        int priorityOneCount = 0;
+        int priorityTwoCount = 0;
+        int priorityThreeCount = 0;
+        while(queue2.TryDequeue(out string task,out int priority))
+        {
+            total++;
+            if(priority == 1)
+            {
+                priorityOneCount++;
+            }else if(priority == 2)
+            {
+                priorityTwoCount++;
+            }else if(priority == 3)
+            {
+                priorityThreeCount++;
+            }
+            Console.WriteLine($"任务{task}已解决，当前优先级别{priority}");
+        }
+        Console.WriteLine($"已处理的任务数量{total}");
+        Console.WriteLine($"任务优先1级别处理的数量{priorityOneCount}");
+        Console.WriteLine($"任务优先2级别处理的数量{priorityTwoCount}");
+        Console.WriteLine($"任务优先3级别处理的数量{priorityThreeCount}");
+
     }
 
 
